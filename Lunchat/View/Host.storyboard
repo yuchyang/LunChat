@@ -13,6 +13,7 @@
         <!--Host-->
         <scene sceneID="Vka-vE-O0h">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hF2-Dd-JIb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Pbk-By-mpf" customClass="HostViewController" customModule="Lunchat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Y95-to-X0Y">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -22,9 +23,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Host" id="Mrc-pd-PwR"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hF2-Dd-JIb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4170" y="-308"/>
+            <point key="canvasLocation" x="4169.5652173913049" y="-308.03571428571428"/>
         </scene>
         <!--Host-->
         <scene sceneID="3iX-8u-e2d">

@@ -8,6 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		750033527232F0C87A4CAA1B /* Pods_Lunchat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 824CD3857F41965043A667DB /* Pods_Lunchat.framework */; };
+		8309DA74232F4717008682C6 /* PageTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8309DA73232F4717008682C6 /* PageTitleView.swift */; };
+		83113B72233793C300296476 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83113B71233793C300296476 /* MapViewController.swift */; };
+		83113B762337955A00296476 /* YTLoactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83113B752337955A00296476 /* YTLoactionManager.swift */; };
+		83113B782337958800296476 /* YTGeocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83113B772337958800296476 /* YTGeocoder.swift */; };
+		83113B7A2337972500296476 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83113B792337972500296476 /* Place.swift */; };
+		8363F066233329180089476F /* PageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8363F065233329180089476F /* PageContentView.swift */; };
+		8363F06A2335FB040089476F /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8363F0692335FB040089476F /* RecommendViewController.swift */; };
+		839CBB4023384A1A0097471D /* LayoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839CBB3F23384A1A0097471D /* LayoutButton.swift */; };
+		83ADBD0023368D0C00560E73 /* MateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ADBCFF23368D0C00560E73 /* MateViewController.swift */; };
+		83ADBD0223368D7500560E73 /* MateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ADBD0123368D7400560E73 /* MateTableViewCell.swift */; };
+		83ADBD042336EF9800560E73 /* LCTableViewCelll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ADBD032336EF9800560E73 /* LCTableViewCelll.swift */; };
 		FC216A1E232897E4006FBA6E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC216A1D232897E4006FBA6E /* SignUpViewController.swift */; };
 		FC216A202328D78A006FBA6E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC216A1F2328D78A006FBA6E /* HomeViewController.swift */; };
 		FC216A222328D909006FBA6E /* ManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC216A212328D909006FBA6E /* ManageViewController.swift */; };
@@ -32,6 +43,17 @@
 		640F8F413A805A274919D976 /* Pods-Lunchat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lunchat.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lunchat/Pods-Lunchat.release.xcconfig"; sourceTree = "<group>"; };
 		69E5BF3B8706DD4FAEFCAB75 /* Pods-Lunchat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lunchat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lunchat/Pods-Lunchat.debug.xcconfig"; sourceTree = "<group>"; };
 		824CD3857F41965043A667DB /* Pods_Lunchat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lunchat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8309DA73232F4717008682C6 /* PageTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTitleView.swift; sourceTree = "<group>"; };
+		83113B71233793C300296476 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		83113B752337955A00296476 /* YTLoactionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTLoactionManager.swift; sourceTree = "<group>"; };
+		83113B772337958800296476 /* YTGeocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTGeocoder.swift; sourceTree = "<group>"; };
+		83113B792337972500296476 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		8363F065233329180089476F /* PageContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageContentView.swift; sourceTree = "<group>"; };
+		8363F0692335FB040089476F /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
+		839CBB3F23384A1A0097471D /* LayoutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutButton.swift; sourceTree = "<group>"; };
+		83ADBCFF23368D0C00560E73 /* MateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateViewController.swift; sourceTree = "<group>"; };
+		83ADBD0123368D7400560E73 /* MateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MateTableViewCell.swift; sourceTree = "<group>"; };
+		83ADBD032336EF9800560E73 /* LCTableViewCelll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCTableViewCelll.swift; sourceTree = "<group>"; };
 		FC216A1D232897E4006FBA6E /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		FC216A1F2328D78A006FBA6E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FC216A212328D909006FBA6E /* ManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +88,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		83113B742337953900296476 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				83113B752337955A00296476 /* YTLoactionManager.swift */,
+				83113B772337958800296476 /* YTGeocoder.swift */,
+				83113B792337972500296476 /* Place.swift */,
+				839CBB3F23384A1A0097471D /* LayoutButton.swift */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		8363F06B233670B50089476F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				83ADBD0123368D7400560E73 /* MateTableViewCell.swift */,
+				83ADBD032336EF9800560E73 /* LCTableViewCelll.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		88F582EDB0DDF2536B5A98D4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +136,9 @@
 				FC216A1F2328D78A006FBA6E /* HomeViewController.swift */,
 				FC216A1D232897E4006FBA6E /* SignUpViewController.swift */,
 				FC56DE372327E7AC0051B708 /* SigninViewController.swift */,
+				8363F0692335FB040089476F /* RecommendViewController.swift */,
+				83ADBCFF23368D0C00560E73 /* MateViewController.swift */,
+				83113B71233793C300296476 /* MapViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -109,6 +154,8 @@
 				FC4080962328F81600EFF9B4 /* Home.storyboard */,
 				FC56DE292327D2C10051B708 /* Main.storyboard */,
 				FC56DE2E2327D2C40051B708 /* LaunchScreen.storyboard */,
+				8309DA73232F4717008682C6 /* PageTitleView.swift */,
+				8363F065233329180089476F /* PageContentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -141,6 +188,8 @@
 		FC56DE242327D2C10051B708 /* Lunchat */ = {
 			isa = PBXGroup;
 			children = (
+				83113B742337953900296476 /* Tool */,
+				8363F06B233670B50089476F /* Cells */,
 				FC50E1BC232BE3C700FDC25F /* GoogleService-Info.plist */,
 				FC50E1B9232BE1B300FDC25F /* Model */,
 				FC50E1B8232BE1AF00FDC25F /* View */,
@@ -320,11 +369,22 @@
 				FC216A1E232897E4006FBA6E /* SignUpViewController.swift in Sources */,
 				FC56DE382327E7AC0051B708 /* SigninViewController.swift in Sources */,
 				FC216A242328D915006FBA6E /* HostViewController.swift in Sources */,
+				83113B782337958800296476 /* YTGeocoder.swift in Sources */,
+				83113B762337955A00296476 /* YTLoactionManager.swift in Sources */,
+				8363F066233329180089476F /* PageContentView.swift in Sources */,
 				FC56DE262327D2C10051B708 /* AppDelegate.swift in Sources */,
 				FC216A222328D909006FBA6E /* ManageViewController.swift in Sources */,
 				FC216A202328D78A006FBA6E /* HomeViewController.swift in Sources */,
+				83ADBD042336EF9800560E73 /* LCTableViewCelll.swift in Sources */,
+				8309DA74232F4717008682C6 /* PageTitleView.swift in Sources */,
+				839CBB4023384A1A0097471D /* LayoutButton.swift in Sources */,
+				83ADBD0023368D0C00560E73 /* MateViewController.swift in Sources */,
 				FC216A282328D937006FBA6E /* ProfileViewController.swift in Sources */,
 				FC216A262328D928006FBA6E /* MessageViewController.swift in Sources */,
+				8363F06A2335FB040089476F /* RecommendViewController.swift in Sources */,
+				83113B7A2337972500296476 /* Place.swift in Sources */,
+				83113B72233793C300296476 /* MapViewController.swift in Sources */,
+				83ADBD0223368D7500560E73 /* MateTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
