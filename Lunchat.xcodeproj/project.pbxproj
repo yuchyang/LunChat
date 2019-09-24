@@ -13,11 +13,11 @@
 		83113B762337955A00296476 /* YTLoactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83113B752337955A00296476 /* YTLoactionManager.swift */; };
 		83113B782337958800296476 /* YTGeocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83113B772337958800296476 /* YTGeocoder.swift */; };
 		83113B7A2337972500296476 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83113B792337972500296476 /* Place.swift */; };
+		8347B717233A2A84006E2B1A /* MateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8347B716233A2A84006E2B1A /* MateTableViewCell.swift */; };
 		8363F066233329180089476F /* PageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8363F065233329180089476F /* PageContentView.swift */; };
 		8363F06A2335FB040089476F /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8363F0692335FB040089476F /* RecommendViewController.swift */; };
 		839CBB4023384A1A0097471D /* LayoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839CBB3F23384A1A0097471D /* LayoutButton.swift */; };
 		83ADBD0023368D0C00560E73 /* MateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ADBCFF23368D0C00560E73 /* MateViewController.swift */; };
-		83ADBD0223368D7500560E73 /* MateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ADBD0123368D7400560E73 /* MateTableViewCell.swift */; };
 		83ADBD042336EF9800560E73 /* LCTableViewCelll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ADBD032336EF9800560E73 /* LCTableViewCelll.swift */; };
 		FC216A1E232897E4006FBA6E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC216A1D232897E4006FBA6E /* SignUpViewController.swift */; };
 		FC216A202328D78A006FBA6E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC216A1F2328D78A006FBA6E /* HomeViewController.swift */; };
@@ -48,11 +48,11 @@
 		83113B752337955A00296476 /* YTLoactionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTLoactionManager.swift; sourceTree = "<group>"; };
 		83113B772337958800296476 /* YTGeocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTGeocoder.swift; sourceTree = "<group>"; };
 		83113B792337972500296476 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		8347B716233A2A84006E2B1A /* MateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateTableViewCell.swift; sourceTree = "<group>"; };
 		8363F065233329180089476F /* PageContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageContentView.swift; sourceTree = "<group>"; };
 		8363F0692335FB040089476F /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
 		839CBB3F23384A1A0097471D /* LayoutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutButton.swift; sourceTree = "<group>"; };
 		83ADBCFF23368D0C00560E73 /* MateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateViewController.swift; sourceTree = "<group>"; };
-		83ADBD0123368D7400560E73 /* MateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MateTableViewCell.swift; sourceTree = "<group>"; };
 		83ADBD032336EF9800560E73 /* LCTableViewCelll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCTableViewCelll.swift; sourceTree = "<group>"; };
 		FC216A1D232897E4006FBA6E /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		FC216A1F2328D78A006FBA6E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -102,8 +102,8 @@
 		8363F06B233670B50089476F /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				83ADBD0123368D7400560E73 /* MateTableViewCell.swift */,
 				83ADBD032336EF9800560E73 /* LCTableViewCelll.swift */,
+				8347B716233A2A84006E2B1A /* MateTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -377,6 +377,7 @@
 				FC216A202328D78A006FBA6E /* HomeViewController.swift in Sources */,
 				83ADBD042336EF9800560E73 /* LCTableViewCelll.swift in Sources */,
 				8309DA74232F4717008682C6 /* PageTitleView.swift in Sources */,
+				8347B717233A2A84006E2B1A /* MateTableViewCell.swift in Sources */,
 				839CBB4023384A1A0097471D /* LayoutButton.swift in Sources */,
 				83ADBD0023368D0C00560E73 /* MateViewController.swift in Sources */,
 				FC216A282328D937006FBA6E /* ProfileViewController.swift in Sources */,
@@ -384,7 +385,6 @@
 				8363F06A2335FB040089476F /* RecommendViewController.swift in Sources */,
 				83113B7A2337972500296476 /* Place.swift in Sources */,
 				83113B72233793C300296476 /* MapViewController.swift in Sources */,
-				83ADBD0223368D7500560E73 /* MateTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
