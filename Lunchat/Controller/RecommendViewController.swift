@@ -21,10 +21,10 @@ class RecommendViewController: UIViewController,UITableViewDelegate,UITableViewD
         tableView.delegate = self
         
         dataSource = [
-            ["title":"Do you like music?","theme":"Music","location":"Union House","participant":"3","time":"11:00","collected": "true"],
-            ["title":"What's your favorite movie?","theme":"Movie","location":"Union House","participant":"3","time":"12:00","collected": "true"],
-            ["title":"Do you like art?","theme":"Art","location":"Union House","participant":"3","time":"16:40","collected": "true"],
-            ["title":"Go to Gym?","theme":"Sport","location":"Union House","participant":"3","time":"10:50","collected": "true"]]
+            ["title":"Do you like music?","theme":"Architecture","location":"Union House","participant":"3","MaxParticipant":"5","time":"11:00","collected": "true"],
+            ["title":"What's your favorite movie?","theme":"Movie","location":"Union House","participant":"3","MaxParticipant":"4","time":"12:00","collected": "true"],
+            ["title":"Do you like art?","theme":"Art","location":"Union House","participant":"3","MaxParticipant":"3","time":"16:40","collected": "true"],
+            ["title":"Go to Gym?","theme":"Sport","location":"Union House","participant":"1","MaxParticipant":"2","time":"10:50","collected": "true"]]
         tableView.reloadData()
     }
     
@@ -43,13 +43,12 @@ class RecommendViewController: UIViewController,UITableViewDelegate,UITableViewD
         let dict:Dictionary = dataSource[indexPath.row]
         cell?.titleLabel.text = dict["title"]
         cell?.themeLabel.text = dict["theme"]
-        var location = "-"
-        location = location+dict["location"]!
+        cell?.themeLabel.adjustsFontSizeToFitWidth = true
 //        cell?.locationLabel.text = location
-        let number = 4
-        cell?.participant.text = dict["participant"]!+"/\(number)"
+        let maxNumber = dict["MaxParticipant"]
+        cell?.participant.text = dict["participant"]!+"/"+maxNumber!
         cell?.timeLabel.text = dict["time"]
-        cell?.locationLabel.setTitle(location, for: .normal)
+        cell?.locationLabel.setTitle(dict["location"]!, for: .normal)
         return cell!
     }
     
