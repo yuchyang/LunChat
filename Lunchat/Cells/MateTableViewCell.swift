@@ -24,7 +24,7 @@ class MateTableViewCell: UITableViewCell {
         userLabel.font = UIFont.boldSystemFont(ofSize: 17)
         userLabel.textAlignment = .left
         
-        departmentLabel = UILabel(frame: CGRect(x: 110, y: 50, width: 200, height: 15))
+        departmentLabel = UILabel(frame: CGRect(x: 111, y: 50, width: 200, height: 15))
         departmentLabel.textColor = UIColor.black
         departmentLabel.font = UIFont.systemFont(ofSize: 12)
         departmentLabel.textAlignment = .left

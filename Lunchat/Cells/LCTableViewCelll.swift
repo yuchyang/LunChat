@@ -12,11 +12,18 @@ class LCTableViewCell: UITableViewCell {
     let width:CGFloat = UIScreen.main.bounds.width
     var titleLabel:UILabel!      // 名字
     var themeLabel:UILabel!  // 主题
-    var locationLabel:UIButton!       // 地点
+    var locationLabel:UILabel!       // 地点
     var participant:UILabel!    // 参加人数
     var timeLabel:UILabel!    //约定时间
+    // ViewController
     var people : UIImageView!
     var peopleWithImage: UILabel!
+    var locationImage : UIImageView!
+    var locationWithImage : UILabel!
+    var timeImage : UIImageView!
+    var timeWithImage : UILabel!
+    // 收藏按钮
+    var collecteButton: UIButton!
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -36,13 +43,17 @@ class LCTableViewCell: UITableViewCell {
 //        themeLabel.layer.borderWidth = 1
         themeLabel.layer.backgroundColor = UIColor.orange.cgColor
         
-        locationLabel = UIButton(frame: CGRect(x: 5, y: 60, width: 130, height: 15))
-        locationLabel.setImage(UIImage(named: "video_ico_location"), for: .normal)
-        locationLabel.titleLabel?.font = UIFont.boldSystemFont(ofSize: 10)
-        locationLabel.titleLabel?.textAlignment = .left
-        locationLabel.setTitleColor(UIColor.black, for: .normal)
-        locationLabel.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 60)
-        locationLabel.titleEdgeInsets = UIEdgeInsets(top: 0, left: -50, bottom: 0, right: 0)
+        locationLabel = UILabel(frame: CGRect(x: 15, y: 0, width: 130, height: 15))
+//        locationLabel.setImage(UIImage(named: "video_ico_location"), for: .normal)
+        locationLabel.font = UIFont.boldSystemFont(ofSize: 10)
+        locationLabel.textAlignment = .left
+        locationLabel.textColor = UIColor.black
+        locationImage = UIImageView(frame: CGRect(x: 2.5, y: 1, width: 10, height: 13))
+        locationImage.image = UIImage(named: "video_ico_location")
+        locationWithImage = UILabel(frame: CGRect(x: 2, y: 60, width: 100, height: 15))
+        locationWithImage.addSubview(locationImage)
+        locationWithImage.addSubview(locationLabel)
+        
         participant = UILabel(frame: CGRect(x: 15, y: 0, width: 100, height: 15))
         people = UIImageView(frame: CGRect(x: 0, y: 0, width: 15, height: 15))
         people.image =  UIImage(named: "home_live_player_normal")
@@ -53,17 +64,25 @@ class LCTableViewCell: UITableViewCell {
         peopleWithImage.addSubview(people)
         peopleWithImage.addSubview(participant)
         
-        timeLabel = UILabel(frame: CGRect(x: UIScreen.main.bounds.size.width-100, y: 35, width: 100, height: 30))
+        timeLabel = UILabel(frame: CGRect(x:30, y: 0, width: 100, height: 25))
         timeLabel.textColor = UIColor.black
         timeLabel.font = UIFont.boldSystemFont(ofSize: 25)
-        timeLabel.textAlignment = .right
+        timeLabel.textAlignment = .left
+        timeImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
+        timeImage.image = UIImage(named: "cmic_time_icon")
+        timeWithImage = UILabel(frame: CGRect(x: UIScreen.main.bounds.size.width-100, y: 35, width: 100, height: 30))
+        timeWithImage.addSubview(timeImage)
+        timeWithImage.addSubview(timeLabel)
+        
+        collecteButton = UIButton(frame: CGRect(x: UIScreen.main.bounds.size.width-35, y: 70, width: 25, height: 25))
+        
         
         contentView.addSubview(titleLabel)
         contentView.addSubview(themeLabel)
-        contentView.addSubview(locationLabel)
+        contentView.addSubview(locationWithImage)
         contentView.addSubview(peopleWithImage)
-        contentView.addSubview(timeLabel)
-      
+        contentView.addSubview(timeWithImage)
+        addSubview(collecteButton)
         // 出生日期
 //        departmentLabel = UILabel(frame: CGRect(x: 110, y: 49, width: width-94, height: 13))
 //        departmentLabel.textColor = UIColor.black

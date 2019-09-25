@@ -10,6 +10,7 @@ import UIKit
 
 class RecommendViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     var dataSource = [[String:String]()]
+    var collectedFlag = Bool()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,10 +22,10 @@ class RecommendViewController: UIViewController,UITableViewDelegate,UITableViewD
         tableView.delegate = self
         
         dataSource = [
-            ["title":"Do you like music?","theme":"Architecture","location":"Union House","participant":"3","MaxParticipant":"5","time":"11:00","collected": "true"],
-            ["title":"What's your favorite movie?","theme":"Movie","location":"Union House","participant":"3","MaxParticipant":"4","time":"12:00","collected": "true"],
-            ["title":"Do you like art?","theme":"Art","location":"Union House","participant":"3","MaxParticipant":"3","time":"16:40","collected": "true"],
-            ["title":"Go to Gym?","theme":"Sport","location":"Union House","participant":"1","MaxParticipant":"2","time":"10:50","collected": "true"]]
+            ["title":"Do you like music?","theme":"Architecture","location":"Union House Ground 1","participant":"3","MaxParticipant":"5","time":"11:00","collected": "true"],
+            ["title":"What's your favorite movie?","theme":"Movie","location":"Union House","participant":"3","MaxParticipant":"4","time":"12:00","collected": "false"],
+            ["title":"Do you like art?","theme":"Art","location":"Union House","participant":"3","MaxParticipant":"3","time":"16:40","collected": "false"],
+            ["title":"Go to Gym?","theme":"Sport","location":"Union House","participant":"1","MaxParticipant":"2","time":"10:50","collected": "false"]]
         tableView.reloadData()
     }
     
@@ -48,7 +49,20 @@ class RecommendViewController: UIViewController,UITableViewDelegate,UITableViewD
         let maxNumber = dict["MaxParticipant"]
         cell?.participant.text = dict["participant"]!+"/"+maxNumber!
         cell?.timeLabel.text = dict["time"]
-        cell?.locationLabel.setTitle(dict["location"]!, for: .normal)
+        cell?.locationLabel.text = dict["location"]!
+    
+        collectedFlag =  (dict["collected"]! as NSString).boolValue
+        cell?.collecteButton.setImage(UIImage(named: "video_btn_collect40HL"), for: .normal)
+
+        cell?.collecteButton.setImage(UIImage(named: "video_btn_collected40"), for: .selected)
+
+        if collectedFlag{
+            cell?.collecteButton.isSelected = true
+        }
+        else{
+            cell?.collecteButton.isSelected = false
+        }
+        cell?.collecteButton.addTarget(self, action: #selector(buttonAction(button:)),for:.touchUpInside)      
         return cell!
     }
     
@@ -63,6 +77,10 @@ class RecommendViewController: UIViewController,UITableViewDelegate,UITableViewD
     // 选中cell后执行此方法
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
+    }
+    // 点击按钮
+    @objc private func buttonAction(button : UIButton) {
+        button.isSelected = !button.isSelected
     }
     
     /*
