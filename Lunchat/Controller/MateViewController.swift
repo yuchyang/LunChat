@@ -15,7 +15,7 @@ class MateViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let tableView = UITableView(frame: view.bounds, style: .grouped)
+        let tableView = UITableView(frame:CGRect(x: 0, y: 0, width: view.bounds.width, height: UIScreen.main.bounds.height-276), style: .plain)
         tableView.backgroundColor = UIColor.white;
         view.addSubview(tableView)
         tableView.dataSource = self

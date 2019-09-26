@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -12,13 +11,14 @@
         <scene sceneID="h9a-74-4eu">
             <objects>
                 <viewController id="zu6-81-2pt" customClass="HomeViewController" customModule="Lunchat" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Cba-uW-W7Q">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Cba-uW-W7Q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="SHV-lx-qQo"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="vdu-GY-SJQ"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="414" height="20000"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cOM-OB-J89" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

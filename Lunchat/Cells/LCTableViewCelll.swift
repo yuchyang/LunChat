@@ -70,7 +70,7 @@ class LCTableViewCell: UITableViewCell {
         timeLabel.textAlignment = .left
         timeImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
         timeImage.image = UIImage(named: "cmic_time_icon")
-        timeWithImage = UILabel(frame: CGRect(x: UIScreen.main.bounds.size.width-100, y: 35, width: 100, height: 30))
+        timeWithImage = UILabel(frame: CGRect(x: UIScreen.main.bounds.size.width-102, y: 35, width: 100, height: 30))
         timeWithImage.addSubview(timeImage)
         timeWithImage.addSubview(timeLabel)
         

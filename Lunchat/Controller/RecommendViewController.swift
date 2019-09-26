@@ -15,17 +15,21 @@ class RecommendViewController: UIViewController,UITableViewDelegate,UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let tableView = UITableView(frame: view.bounds, style: .grouped)
+        let tableView = UITableView(frame:CGRect(x: 0, y: 0, width: view.bounds.width, height: UIScreen.main.bounds.height-276), style: .plain)
         tableView.backgroundColor = UIColor.white;
         view.addSubview(tableView)
         tableView.dataSource = self
         tableView.delegate = self
-        
+        tableView.isScrollEnabled = true
+        tableView.bounces = false
         dataSource = [
             ["title":"Do you like music?","theme":"Architecture","location":"Union House Ground 1","participant":"3","MaxParticipant":"5","time":"11:00","collected": "true"],
             ["title":"What's your favorite movie?","theme":"Movie","location":"Union House","participant":"3","MaxParticipant":"4","time":"12:00","collected": "false"],
             ["title":"Do you like art?","theme":"Art","location":"Union House","participant":"3","MaxParticipant":"3","time":"16:40","collected": "false"],
-            ["title":"Go to Gym?","theme":"Sport","location":"Union House","participant":"1","MaxParticipant":"2","time":"10:50","collected": "false"]]
+            ["title":"Go to Gym?","theme":"Sport","location":"Union House","participant":"1","MaxParticipant":"2","time":"10:50","collected": "false"],
+            ["title":"Do you like music?","theme":"Architecture","location":"Union House Ground 1","participant":"3","MaxParticipant":"5","time":"11:00","collected": "true"],
+            ["title":"Do you like music?","theme":"Architecture","location":"Union House Ground 1","participant":"3","MaxParticipant":"5","time":"11:00","collected": "true"],
+            ["title":"Do you like music?","theme":"Architecture","location":"Union House Ground 1","participant":"3","MaxParticipant":"5","time":"11:00","collected": "true"]]
         tableView.reloadData()
     }
     

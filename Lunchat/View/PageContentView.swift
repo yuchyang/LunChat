@@ -59,7 +59,7 @@ extension PageContentView{
             parentViewController?.addChild(childVc)
         }
         addSubview(collctionView)
-        collctionView.frame = bounds
+        collctionView.frame = CGRect(x: 0, y: 0, width: bounds.width, height: UIScreen.main.bounds.height-276)
         
     }
 }
@@ -77,6 +77,8 @@ extension PageContentView: UICollectionViewDataSource{
         }
         let childVc = childVcs[indexPath.item]
         childVc.view.frame = cell.contentView.bounds
+//        print(cell.contentView.bounds)
+//        print(cell.frame)
         cell.contentView.addSubview(childVc.view)
         return cell
     }
@@ -85,6 +87,8 @@ extension PageContentView: UICollectionViewDataSource{
 extension PageContentView : UICollectionViewDelegate{
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         startOffsetX = scrollView.contentOffset.x
+//        print(scrollView.contentOffset.x)
+        print(scrollView.contentSize)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -123,7 +127,9 @@ extension PageContentView : UICollectionViewDelegate{
             if sourceIndex >= childVcs.count{
                 sourceIndex = childVcs.count - 1
             }
+            
         }
+//        print(scrollView.contentOffset.y)
         // 3.将progress/sourceIndex/targetIndex传递给titleView
         delegate?.pageContentView(contentView: self, progress: progess, sourceIndex: sourceIndex, targeIndex: targetIndex)
     }

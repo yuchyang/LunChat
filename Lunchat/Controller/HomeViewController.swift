@@ -30,7 +30,7 @@ class HomeViewController: UIViewController {
     }()
     private lazy var pageContentView : PageContentView =  {
         let contentH = UIScreen.main.bounds.size.height  - 80 -  kTitleViewH
-        let contentFrame = CGRect(x: 0, y: 100 + kTitleViewH , width: UIScreen.main.bounds.size.width, height: contentH)
+        let contentFrame = CGRect(x: 0, y: 100 + kTitleViewH , width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height-276)
         var childVcs = [UIViewController]()
 //        for _ in 0..<2{
 //            let vc = UIViewController()
@@ -56,6 +56,8 @@ class HomeViewController: UIViewController {
         view.addSubview(searchBar)
         view.addSubview(pageTitleView)
         view.addSubview(pageContentView)
+//        print(pageContentView.frame.height)
+//        print(view.frame.height)
         pageContentView.backgroundColor = UIColor.purple
     }
 

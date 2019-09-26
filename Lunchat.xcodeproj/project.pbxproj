@@ -102,6 +102,7 @@
 		8363F06B233670B50089476F /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				FC216A232328D915006FBA6E /* HostViewController.swift */,
 				83ADBD032336EF9800560E73 /* LCTableViewCelll.swift */,
 				8347B716233A2A84006E2B1A /* MateTableViewCell.swift */,
 			);
@@ -131,7 +132,6 @@
 				FC56DE252327D2C10051B708 /* AppDelegate.swift */,
 				FC216A272328D937006FBA6E /* ProfileViewController.swift */,
 				FC216A252328D928006FBA6E /* MessageViewController.swift */,
-				FC216A232328D915006FBA6E /* HostViewController.swift */,
 				FC216A212328D909006FBA6E /* ManageViewController.swift */,
 				FC216A1F2328D78A006FBA6E /* HomeViewController.swift */,
 				FC216A1D232897E4006FBA6E /* SignUpViewController.swift */,
