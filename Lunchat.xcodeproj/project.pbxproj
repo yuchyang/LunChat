@@ -148,8 +148,8 @@
 			children = (
 				FC4080942328F36000EFF9B4 /* HomePage.storyboard */,
 				FC40809E2328F9EF00EFF9B4 /* Profile.storyboard */,
-				FC40809C2328F99100EFF9B4 /* Message.storyboard */,
 				FC40809A2328F94300EFF9B4 /* Host.storyboard */,
+				FC40809C2328F99100EFF9B4 /* Message.storyboard */,
 				FC4080982328F8D300EFF9B4 /* Manage.storyboard */,
 				FC4080962328F81600EFF9B4 /* Home.storyboard */,
 				FC56DE292327D2C10051B708 /* Main.storyboard */,

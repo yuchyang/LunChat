@@ -11,11 +11,13 @@ import UIKit
 
 class MateViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     var dataSource = [[String:String]()]
+    var mate = [[String:String]()]
+    var tableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let tableView = UITableView(frame:CGRect(x: 0, y: 0, width: view.bounds.width, height: UIScreen.main.bounds.height-276), style: .plain)
+        self.tableView = UITableView(frame: view.bounds, style: .grouped)
         tableView.backgroundColor = UIColor.white;
         view.addSubview(tableView)
         tableView.dataSource = self
@@ -26,13 +28,15 @@ class MateViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             ["name":"Pena Valdez","sex":"female","icon":"no-user-image-square","department":"Master of Computer Science"],
             ["name":"Jessica","sex":"female","icon":"no-user-image-square","department":"Master of teaching"],
             ["name":"JIM","sex":"male","icon":"no-user-image-square","department":"Master of Information system"]]
+        self.mate = dataSource
+        
         tableView.reloadData()
     }
     
     //MARK: UITableViewDataSource
     // cell的个数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.count
+        return self.mate.count
     }
     // UITableViewCell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -41,7 +45,7 @@ class MateViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         if cell==nil {
             cell = MateTableViewCell(style: .subtitle, reuseIdentifier: cellid)
         }
-        let dict:Dictionary = dataSource[indexPath.row]
+        let dict:Dictionary = self.mate[indexPath.row]
         cell?.iconImv.image = UIImage(named: dict["icon"]!)
         cell?.userLabel.text = dict["name"]
 //        cell?.sexLabel.text = dict["sex"]
@@ -84,3 +88,31 @@ class MateViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
 }
 
+extension MateViewController : searchDelegate{
+    func transmitString(context: String){
+         if context == "" {
+                self.mate = self.dataSource
+           } else {
+
+               // 匹配用户输入的前缀，不区分大小写
+                self.mate = []
+
+                for arr in self.dataSource {
+
+                    if ((arr["name"]?.lowercased().contains(context.lowercased()))!) {
+                           self.mate.append(arr)
+                       }
+               }
+                for arr in self.dataSource {
+
+                    if ((arr["department"]?.lowercased().contains(context.lowercased()))!) {
+                        if !self.mate.contains(arr){
+                            self.mate.append(arr)
+                        }
+                    }
+                }
+           }
+        self.tableView.reloadData()
+//        print(context)
+    }
+}

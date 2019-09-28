@@ -9,16 +9,21 @@
 import UIKit
 
 private  let  kTitleViewH : CGFloat = 40
+protocol searchDelegate: class {
+    func transmitString(context: String)
+}
 
 class HomeViewController: UIViewController {
 
 //    @IBOutlet weak var searchBar: UISearchBar!
+    weak var delegate : searchDelegate?
+    weak var delegate2 : searchDelegate?
     
     private  lazy var pageTitleView : PageTitleView = {[weak self] in
         let titleFrame = CGRect(x: 0, y: 100, width: 414, height: kTitleViewH)
         let  titles   = ["Lunch Chat","Mate"]
         let titleView = PageTitleView(frame: titleFrame, titles: titles)
-
+        
         titleView.delegate = self
 //        titleView.backgroundColor = UIColor.purple
         return titleView
@@ -58,6 +63,9 @@ class HomeViewController: UIViewController {
         view.addSubview(pageContentView)
 //        print(pageContentView.frame.height)
 //        print(view.frame.height)
+        self.delegate = pageContentView.childVcs[0] as? searchDelegate
+        self.delegate2 = pageContentView.childVcs[1] as? searchDelegate
+        searchBar.delegate  = self
         pageContentView.backgroundColor = UIColor.purple
     }
 
@@ -78,3 +86,11 @@ extension HomeViewController : PageContentViewDelegate{
         pageTitleView.setTitleWithProgress(progress: progress, sourceIndex: sourceIndex, targetIndex: targeIndex)
     }
 }
+extension HomeViewController : UISearchBarDelegate{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        delegate?.transmitString(context: searchText)
+        delegate2?.transmitString(context: searchText)
+        print(delegate.debugDescription)
+    }
+}
+

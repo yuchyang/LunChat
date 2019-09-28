@@ -18,7 +18,7 @@ private let ContentCellID = "ContentCellID"
 
 class PageContentView: UIView {
     //定义属性
-    private  var childVcs  : [UIViewController]
+    var childVcs  : [UIViewController]
     private weak var parentViewController : UIViewController?
     private var startOffsetX : CGFloat = 0
     weak var delegate : PageContentViewDelegate?
@@ -162,3 +162,4 @@ extension PageContentView{
 
     }
 }
+

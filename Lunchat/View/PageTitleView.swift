@@ -133,9 +133,8 @@ extension PageTitleView{
         //2.获取之前的Label
         let oldLabel = titleLabels[currentIndex]
         //3.切换文字的颜色
-        currentLabel.textColor = UIColor.orange
         oldLabel.textColor = UIColor.darkGray
-        
+        currentLabel.textColor = UIColor.orange
         //4.保存最新label下标
         currentIndex = currentLabel.tag
         

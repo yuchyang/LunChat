@@ -8,14 +8,15 @@
 
 import UIKit
 
-class RecommendViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class RecommendViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
     var dataSource = [[String:String]()]
     var collectedFlag = Bool()
+    var result = [[String:String]()]
+    var tableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let tableView = UITableView(frame:CGRect(x: 0, y: 0, width: view.bounds.width, height: UIScreen.main.bounds.height-276), style: .plain)
+        tableView = UITableView(frame:CGRect(x: 0, y: 0, width: view.bounds.width, height: UIScreen.main.bounds.height-276), style: .plain)
         tableView.backgroundColor = UIColor.white;
         view.addSubview(tableView)
         tableView.dataSource = self
@@ -30,13 +31,14 @@ class RecommendViewController: UIViewController,UITableViewDelegate,UITableViewD
             ["title":"Do you like music?","theme":"Architecture","location":"Union House Ground 1","participant":"3","MaxParticipant":"5","time":"11:00","collected": "true"],
             ["title":"Do you like music?","theme":"Architecture","location":"Union House Ground 1","participant":"3","MaxParticipant":"5","time":"11:00","collected": "true"],
             ["title":"Do you like music?","theme":"Architecture","location":"Union House Ground 1","participant":"3","MaxParticipant":"5","time":"11:00","collected": "true"]]
+        self.result  = dataSource
         tableView.reloadData()
     }
     
     //MARK: UITableViewDataSource
     // cell的个数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.count
+        return self.result.count
     }
     // UITableViewCell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -45,7 +47,9 @@ class RecommendViewController: UIViewController,UITableViewDelegate,UITableViewD
         if cell==nil {
             cell = LCTableViewCell(style: .subtitle, reuseIdentifier: cellid)
         }
-        let dict:Dictionary = dataSource[indexPath.row]
+//        print(self.result)
+//        print(indexPath.row)
+        let dict:Dictionary = self.result[indexPath.row]
         cell?.titleLabel.text = dict["title"]
         cell?.themeLabel.text = dict["theme"]
         cell?.themeLabel.adjustsFontSizeToFitWidth = true
@@ -78,6 +82,7 @@ class RecommendViewController: UIViewController,UITableViewDelegate,UITableViewD
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 20
     }
+
     // 选中cell后执行此方法
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
@@ -109,3 +114,31 @@ class RecommendViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
 }
 
+
+extension RecommendViewController : searchDelegate{
+    func transmitString(context: String){
+         if context == "" {
+                self.result = self.dataSource
+           } else {
+               
+               // 匹配用户输入的前缀，不区分大小写
+               self.result = []
+               
+                for arr in self.dataSource {
+                   
+                    if ((arr["title"]?.lowercased().contains(context.lowercased()))!) {
+                           self.result.append(arr)
+                       }
+               }
+                for arr in self.dataSource {
+                          
+                    if ((arr["theme"]?.lowercased().contains(context.lowercased()))!) {
+                        if !self.result.contains(arr){
+                            self.result.append(arr)
+                        }
+                    }
+                }
+           }
+        self.tableView.reloadData()
+    }
+}
