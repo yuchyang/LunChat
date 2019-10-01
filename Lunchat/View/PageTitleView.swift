@@ -115,6 +115,7 @@ extension PageTitleView{
         scrollView.addSubview(scrolllLine)
         scrolllLine.frame = CGRect(x: firstLabel.frame.origin.x, y: frame.height - kScrollLLineH, width: firstLabel.frame.width, height: kScrollLLineH)
     }
+    // 地图按键
     @objc func buttonClick(){
 //        let mapview:MKMapView=MKMapView.init(frame:CGRect.init(x: 0, y: 0, width: 300, height: 300))
         delegate?.mapview(titleView: self, ifmap: true)

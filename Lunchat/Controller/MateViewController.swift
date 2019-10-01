@@ -10,25 +10,27 @@ import UIKit
 
 
 class MateViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-    var dataSource = [[String:String]()]
+//    var dataSource = [
+//    ["name":"Tom Marshall","sex":"male","icon":"no-user-image-square","department":"Master of Bussiness"],
+//    ["name":"Pena Valdez","sex":"female","icon":"no-user-image-square","department":"Master of Computer Science"],
+//    ["name":"Jessica","sex":"female","icon":"no-user-image-square","department":"Master of teaching"],
+//    ["name":"JIM","sex":"male","icon":"no-user-image-square","department":"Master of Information system"]]
     var mate = [[String:String]()]
     var tableView = UITableView()
+    var dataSource = [[String:String]()]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView = UITableView(frame: view.bounds, style: .grouped)
-        tableView.backgroundColor = UIColor.white;
+        self.tableView = UITableView(frame:CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height), style: .plain)
+        tableView.backgroundColor = UIColor.white
         view.addSubview(tableView)
         tableView.dataSource = self
         tableView.delegate = self
         
-        dataSource = [
-            ["name":"Tom Marshall","sex":"male","icon":"no-user-image-square","department":"Master of Bussiness"],
-            ["name":"Pena Valdez","sex":"female","icon":"no-user-image-square","department":"Master of Computer Science"],
-            ["name":"Jessica","sex":"female","icon":"no-user-image-square","department":"Master of teaching"],
-            ["name":"JIM","sex":"male","icon":"no-user-image-square","department":"Master of Information system"]]
-        self.mate = dataSource
+        
+        print("假装")
+        self.mate = self.dataSource
         
         tableView.reloadData()
     }
@@ -92,25 +94,28 @@ extension MateViewController : searchDelegate{
     func transmitString(context: String){
          if context == "" {
                 self.mate = self.dataSource
-           } else {
+           }
+         else {
 
-               // 匹配用户输入的前缀，不区分大小写
-                self.mate = []
+           // 匹配用户输入的前缀，不区分大小写
+            self.mate = []
+            print(context)
+            print(self.dataSource)
+            print(self.mate)
+            for arr in self.dataSource {
 
-                for arr in self.dataSource {
+                if ((arr["name"]?.lowercased().contains(context.lowercased()))!) {
+                       self.mate.append(arr)
+                   }
+           }
+            for arr in self.dataSource {
 
-                    if ((arr["name"]?.lowercased().contains(context.lowercased()))!) {
-                           self.mate.append(arr)
-                       }
-               }
-                for arr in self.dataSource {
-
-                    if ((arr["department"]?.lowercased().contains(context.lowercased()))!) {
-                        if !self.mate.contains(arr){
-                            self.mate.append(arr)
-                        }
+                if ((arr["department"]?.lowercased().contains(context.lowercased()))!) {
+                    if !self.mate.contains(arr){
+                        self.mate.append(arr)
                     }
                 }
+            }
            }
         self.tableView.reloadData()
 //        print(context)
