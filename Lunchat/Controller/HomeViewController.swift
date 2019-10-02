@@ -22,6 +22,21 @@ class HomeViewController: UIViewController {
     weak var delegate : searchDelegate?
     weak var delegate2 : searchDelegate?
 //    var mapview: MKMapView!
+    var apointmentData = [
+        ["title":"Do you like music?","theme":"Architecture","location":"Union House Ground 1","participant":"3","MaxParticipant":"5","time":"11:00","collected": "true","latitude":"-37.791915927734375","longitude":"144.96056159442693"],
+    ["title":"What's your favorite movie?","theme":"Movie","location":"Union House","participant":"3","MaxParticipant":"4","time":"12:00","collected": "false","latitude":"-37.793915927734375","longitude":"144.96056159442693"],
+    ["title":"Do you like art?","theme":"Art","location":"Union House","participant":"3","MaxParticipant":"3","time":"16:40","collected": "false","latitude":"-37.795915927734375","longitude":"144.96056159442693"],
+    ["title":"Go to Gym?","theme":"Sport","location":"Union House","participant":"1","MaxParticipant":"2","time":"10:50","collected": "false","latitude":"-37.797915927734375","longitude":"144.96056159442693"],
+    ["title":"Do you like music?","theme":"Architecture","location":"Union House Ground 1","participant":"3","MaxParticipant":"5","time":"11:00","collected": "true","latitude":"-37.796915927734375","longitude":"144.96056159442693"],
+    ["title":"Do you like music?","theme":"Architecture","location":"Union House Ground 1","participant":"3","MaxParticipant":"5","time":"11:00","collected": "true","latitude":"-37.795815927734375","longitude":"144.96056159442693"],
+    ["title":"Do you like music?","theme":"Architecture","location":"Union House Ground 1","participant":"3","MaxParticipant":"5","time":"11:00","collected": "true","latitude":"-37.795315927734375","longitude":"144.96056159442693"]]
+    
+    var mateData = [
+    ["name":"Tom Marshall","sex":"male","icon":"no-user-image-square","department":"Master of Bussiness"],
+    ["name":"Pena Valdez","sex":"female","icon":"no-user-image-square","department":"Master of Computer Science"],
+    ["name":"Jessica","sex":"female","icon":"no-user-image-square","department":"Master of teaching"],
+    ["name":"JIM","sex":"male","icon":"no-user-image-square","department":"Master of Information system"]]
+    
     
     private  lazy var pageTitleView : PageTitleView = {[weak self] in
         let titleFrame = CGRect(x: 0, y: 44, width: 414, height: kTitleViewH)
@@ -51,23 +66,12 @@ class HomeViewController: UIViewController {
 
         let vc = RecommendViewController()
         //        vc.view.backgroundColor = UIColor.red
-        vc.dataSource = [
-            ["title":"Do you like music?","theme":"Architecture","location":"Union House Ground 1","participant":"3","MaxParticipant":"5","time":"11:00","collected": "true"],
-            ["title":"What's your favorite movie?","theme":"Movie","location":"Union House","participant":"3","MaxParticipant":"4","time":"12:00","collected": "false"],
-            ["title":"Do you like art?","theme":"Art","location":"Union House","participant":"3","MaxParticipant":"3","time":"16:40","collected": "false"],
-            ["title":"Go to Gym?","theme":"Sport","location":"Union House","participant":"1","MaxParticipant":"2","time":"10:50","collected": "false"],
-            ["title":"Do you like music?","theme":"Architecture","location":"Union House Ground 1","participant":"3","MaxParticipant":"5","time":"11:00","collected": "true"],
-            ["title":"Do you like music?","theme":"Architecture","location":"Union House Ground 1","participant":"3","MaxParticipant":"5","time":"11:00","collected": "true"],
-            ["title":"Do you like music?","theme":"Architecture","location":"Union House Ground 1","participant":"3","MaxParticipant":"5","time":"11:00","collected": "true"]]
+        vc.dataSource = apointmentData
         childVcs.append(vc)
         
         let vc1 = MateViewController()
 //        vc1.view.backgroundColor = UIColor.blue
-        vc1.dataSource = [
-        ["name":"Tom Marshall","sex":"male","icon":"no-user-image-square","department":"Master of Bussiness"],
-        ["name":"Pena Valdez","sex":"female","icon":"no-user-image-square","department":"Master of Computer Science"],
-        ["name":"Jessica","sex":"female","icon":"no-user-image-square","department":"Master of teaching"],
-        ["name":"JIM","sex":"male","icon":"no-user-image-square","department":"Master of Information system"]]
+        vc1.dataSource = mateData
         childVcs.append(vc1)
         
         let contentView = PageContentView(frame: contentFrame, childVcs: childVcs,  parentViewController: self)
@@ -112,14 +116,32 @@ extension HomeViewController : UISearchBarDelegate{
         delegate?.transmitString(context: searchText)
         delegate2?.transmitString(context: searchText)
         print(delegate.debugDescription)
+        if  searchText.count == 0{
+            searchBar.resignFirstResponder()
+            self.searchBar.showsCancelButton = false
+        }
+        
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        self.searchBar.showsCancelButton = false
+    }
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.searchBar.showsCancelButton = true
+
     }
 }
 
-extension HomeViewController : CLLocationManagerDelegate{
+extension HomeViewController : CLLocationManagerDelegate,MKMapViewDelegate{
+    
     func setMap(){
         let mapview:MKMapView=MKMapView.init(frame:CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height - 120))
         mapview.tag = 99
+//        view.addSubview(mapview)
+        
+//        let mapview = MKMapView(frame:self.view.frame)
         view.addSubview(mapview)
+        mapview.delegate = self
         mapview.mapType = MKMapType.standard
         let latDelta = 0.01
         let longDelta = 0.01
@@ -128,22 +150,27 @@ extension HomeViewController : CLLocationManagerDelegate{
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
-        print(locationManager.location?.coordinate)
-        
+//        print(locationManager.location?.coordinate)
+        for i in 1...self.apointmentData.count{
+            let objectAnnotation = MKPointAnnotation()
+            let latitude = (self.apointmentData[i-1]["latitude"]! as NSString).doubleValue
+            let longitude = (self.apointmentData[i-1]["longitude"]! as NSString).doubleValue
+            objectAnnotation.coordinate = CLLocation(latitude: latitude,
+            longitude: longitude).coordinate
+            objectAnnotation.title = self.apointmentData[i-1]["title"]
+            //设置点击大头针之后显示的描述
+            objectAnnotation.subtitle = self.apointmentData[i-1]["location"]
+            mapview.addAnnotation(objectAnnotation)
+        }
         let currentLocationSpan:MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: longDelta)
         let center:CLLocation = CLLocation(latitude: -37.796915927734375, longitude: 144.96056159442693)
         let currentRegion:MKCoordinateRegion = MKCoordinateRegion(center: center.coordinate,
         span: currentLocationSpan)
         mapview.setRegion(currentRegion, animated: true)
-        let objectAnnotation = MKPointAnnotation()
-        objectAnnotation.coordinate = CLLocation(latitude: -37.796925927734375,
-        longitude: 144.96056159442693).coordinate
-        objectAnnotation.title = "Union house"
-        //设置点击大头针之后显示的描述
-        objectAnnotation.subtitle = "Do you like music"
-
-        mapview.addAnnotation(objectAnnotation)
-
+        mapview.userTrackingMode = .follow
+        mapview.userLocation.title  = "My position"
+        
+        
         let btn = UIButton()
         btn.tag = 100
         btn.setImage(UIImage(named: "ic_backspace_white_18dp"), for: .normal)
@@ -172,13 +199,14 @@ extension HomeViewController : CLLocationManagerDelegate{
             pinView?.canShowCallout = true
             pinView?.animatesDrop = true
             //设置大头针颜色
-            pinView?.pinTintColor = UIColor.green
+            pinView?.pinTintColor = UIColor.red
             //设置大头针点击注释视图的右侧按钮样式
-            pinView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+//            pinView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         }else{
             pinView?.annotation = annotation
         }
          
         return pinView
     }
+    
 }
